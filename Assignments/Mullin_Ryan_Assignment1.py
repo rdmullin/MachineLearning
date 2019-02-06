@@ -21,10 +21,33 @@ for i in range(len(bb)):
         for n in range(len(x)):
             Z[j][i] = Z[j][i] + (y[n] - b - w*x[n]**2)
             Z[j][i] = Z[j][i]/len(x)
-plt.contour(bb,ww,Z,50, alpha = 0.5, cmap = plt.get_cmap('jet'))
-plt.plot([50],[2],'x', ms = 12, markeredgewidth = 3, color= 'orange')
+            
+# plot the figure
+plt.contourf(bb,ww,Z, 50, alpha =0.5, cmap = plt.get_cmap('jet'))
+plt.plot([50], [2], 'x', ms=12, markeredgewidth=3, color='orange') # mark out the best model 
 plt.xlim(0,100)
 plt.ylim(-5,5)
 plt.xlabel(r'$b$',fontsize=16)
 plt.ylabel(r'$w$',fontsize=16)
 plt.show()
+
+b = 0
+w = 0
+lr = 0.001
+iteration = 10000      
+b_history = []
+w_history = [] 
+
+for i in range(iteration):
+    b_grad = 0.0
+    w_grad = 0.0
+    
+    for n in range(len(x)):
+        a = i
+        #calc grad b
+        #calc gard of w
+        
+        #update parameters b = b +lr * b_grad
+        # w = w + lr * w_grad
+        b_history.append(b)
+        w_history.append(w)
