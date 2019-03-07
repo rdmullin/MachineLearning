@@ -54,10 +54,10 @@ from sklearn.model_selection import train_test_split
 #Import Model
 from sklearn.neighbors import KNeighborsClassifier
 
-model = KNeighborsClassifier(n_neighbors = 10)
+model = KNeighborsClassifier(n_neighbors = 3)
 
 
-# Fit model
+#Fit model
 model.fit(trainX,trainY)
 
 from sklearn.metrics import classification_report
@@ -65,5 +65,26 @@ from sklearn.metrics import classification_report
 print(classification_report(testY,model.predict(testX), target_names = le.classes_))
 
 
+#Cross-validation
+from sklearn.model_selection import cross_val_score
 
-print("DONE")
+
+
+k_range = range(1,10)
+k_scores = []
+
+'''
+for k in k_range:
+    knn = KNeighborsClassifier(n_neighbors = k)
+    scores = cross_val_score(knn,Feature_flat_data,label_encoded,cv=10,scoring = 'accuracy')
+    k_scores.append(scores.mean())
+'''
+print("Done")
+
+
+
+
+
+
+
+
